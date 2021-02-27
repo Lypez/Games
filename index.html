@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Loading!</title>
+<style>
+body {
+background-color: hsl(0, 100%, 90%);
+}
+h1 {
+color: white;
+font-family: sans-serif;
+text-align: center;
+margin-top: 50px;
+-webkit-text-stroke-width: 1px;
+-webkit-text-stroke-color: gray;
+}
+</style>
+</head>
+<body>
+<h1>Loading.<span id="loadingDots"></span></h1>
+<script>
+var colorR = 5;
+var colorO = 90;
+setInterval(colorChange, 100);
+loadDots();
+setInterval(loadDots, 1200);
+function colorChange() {
+document.body.style.backgroundColor = "hsl(" + colorR + ", 100%, " + colorO + "%)";
+colorR = colorR + 5;
+}
+function loadDots() {
+document.getElementById("loadingDots").innerHTML = ".";
+setTimeout(loadDots2, 400);
+setTimeout(loadDots3, 800);
+}
+function loadDots2() {
+document.getElementById("loadingDots").innerHTML = "..";
+}
+function loadDots3() {
+document.getElementById("loadingDots").innerHTML = "";
+}
+document.addEventListener('keydown', function (event) {
+  if (event.key === 'q') {
+colorO = 90;
+  }
+  if (event.key === 'w') {
+colorO = 75;
+  }
+  if (event.key === 'e') {
+colorO = 50;
+  }
+});
+</script>
+</body>
+</html>
